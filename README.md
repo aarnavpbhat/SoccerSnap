@@ -1,3 +1,2 @@
-# filecam
-A program that recognizes hand gestures using OpenCV in Python:
-Doesn't really identify signals; not enough data
+# Binz
+A program that recognizes whether an object is compostable, reyclable or belongs in garbage using Lobe in tenserflow.js:
