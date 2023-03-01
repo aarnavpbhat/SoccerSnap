@@ -35,5 +35,5 @@ Start the server
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT Soccer Snap](https://github.com/Yvite/SoccerSnap/blob/main/LICENSE.md)
 
