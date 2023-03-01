@@ -135,7 +135,7 @@ def upload_file():
         top_prediction = predictions[0]
         label = top_prediction["label"]
         confidence = top_prediction["confidence"] * 100
-        return f'Predicted label: {label}, accuracy: {confidence:.2f}%'
+        return render_template('result.html', label=label, confidence=confidence)
 
 # if __name__ == "__main__":
 #     parser = argparse.ArgumentParser(description="Predict a label for an image.")

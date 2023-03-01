@@ -2,13 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Soccer</title>
+    <title>SoccerSnap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
-    <h1>Dribblle, Shot, Pass or TackleC</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-      <input type="file" name="file">
-      <input type="submit" value="Upload">
-    </form>
+  <body>    <br>
+    <div class="container">
+      <h1 class="mt-4">Dribble, Shot, Pass or Tackle</h1>
+      <h3>Add an image and it will select one of the above based on accuracy. Note: if not a image corresponding to one of the 4, will select on randomnly with random accuracy.</h3>
+      <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload" class="btn btn-primary mt-3">
+      </form><br><br><br><br>
+      <h4>SoccerSnap is an image classification web application that uses machine learning to classify soccer images based on shooting, dribbling, passing or tackling created by Aarnav Bhat using Lobe and TensorFlow.</h4>
+      <br><br><br><h5 class="mt-5">Model last updated 3/1/2023</h5>
+      <h5>Want to contribute? Click <a href="mailto:contactyvite@gmail.com" style="text-decoration: solid; color: blue;">here</a></h5>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
