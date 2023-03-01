@@ -1,6 +1,3 @@
-#  -------------------------------------------------------------
-#   Copyright (c) Microsoft Corporation.  All rights reserved.
-#  -------------------------------------------------------------
 """
 Skeleton code showing how to load and run the TensorFlow SavedModel export package from Lobe.
 """
@@ -9,7 +6,11 @@ import os
 import json
 import numpy as np
 from threading import Lock
+from flask import Flask, render_template, request
+from werkzeug.utils import secure_filename
+from PIL import Image
 
+app = Flask(__name__)
 # printing only warnings and error messages
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "1"
 
@@ -105,22 +106,52 @@ class TFModel:
         sorted_output = {"predictions": sorted(output, key=lambda k: k["confidence"], reverse=True)}
         return sorted_output
 
+@app.route('/')
+def upload_form():
+    return render_template('upload.html')
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Predict a label for an image.")
-    parser.add_argument("image", help="Path to your image file.")
-    args = parser.parse_args()
-    dir_path = os.getcwd()
+# route to handle file upload and prediction
+@app.route('/', methods=['POST'])
+def upload_file():
+    model = TFModel(dir_path=os.getcwd())
 
-    if os.path.isfile(args.image):
-        image = Image.open(args.image)
-        model = TFModel(dir_path=dir_path)
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        return 'No file part'
+
+    file = request.files['file']
+
+    # if user does not select file, browser also
+    # submit an empty part without filename
+    if file.filename == '':
+        return 'No selected file'
+
+    if file:
+        filename = secure_filename(file.filename)
+        file.save(filename)
+        image = Image.open(filename)
         outputs = model.predict(image)
         predictions = outputs["predictions"]
         top_prediction = predictions[0]
         label = top_prediction["label"]
-        confidence = top_prediction["confidence"]
-        print(f"Predicted label: {label}, accuracy: {confidence * 100}%")
-    else:
-        print(f"Couldn't find image file {args.image}")
+        confidence = top_prediction["confidence"] * 100
+        return f'Predicted label: {label}, accuracy: {confidence:.2f}%'
+
+# if __name__ == "__main__":
+#     parser = argparse.ArgumentParser(description="Predict a label for an image.")
+#     parser.add_argument("image", help="Path to your image file.")
+#     args = parser.parse_args()
+#     dir_path = os.getcwd()
+
+#     if os.path.isfile(args.image):
+#         image = Image.open(args.image)
+#         model = TFModel(dir_path=dir_path)
+#         outputs = model.predict(image)
+#         predictions = outputs["predictions"]
+#         top_prediction = predictions[0]
+#         label = top_prediction["label"]
+#         confidence = top_prediction["confidence"]
+#         print(f"Predicted label: {label}, accuracy: {confidence * 100}%")
+#     else:
+#         print(f"Couldn't find image file {args.image}")
 
