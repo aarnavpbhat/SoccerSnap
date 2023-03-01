@@ -1,0 +1,27 @@
+{
+	"doc_id": "60a55465-dce5-4c2d-be0a-706c1d5914a5",
+	"doc_name": "Soccer",
+	"doc_version": "4ab337b698e7cf1f761a575bf5fa4437",
+	"format": "tf",
+	"version": 45,
+	"inputs": {
+		"Image": {
+			"dtype": "float32",
+			"shape": [null, 224, 224, 3],
+			"name": "Image:0"
+		}
+	},
+	"outputs": {
+		"Confidences": {
+			"dtype": "float32",
+			"shape": [null, 4],
+			"name": "sequential/dense_2/Softmax:0"
+		}
+	},
+	"tags": ["serve"],
+	"classes": {
+		"Label": ["Dribbling", "Passing", "Shooting", "Tackling"]
+	},
+	"filename": "saved_model.pb",
+	"export_model_version": 1
+}

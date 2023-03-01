@@ -18,7 +18,7 @@ ASSETS_PATH = os.path.join(".", "./model")
 TF_MODEL = TFModel(ASSETS_PATH)
 
 
-@app.post('/predict')
+@app.get('/predict')
 def predict_image():
     req = request.get_json(force=True)
     image = _process_base64(req)
