@@ -1,1 +1,2 @@
-A program that recognizes whether an image showcases dribbling, shooting, tackling or passing using Lobe and TensorFlow.
+#SoccerSnap
+SoccerSnap is an image classification web application that uses machine learning to classify soccer images based on shooting, dribbling, passing or tackling created by Aarnav Bhat using Lobe and TensorFlow.
