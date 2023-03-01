@@ -120,7 +120,7 @@ if __name__ == "__main__":
         top_prediction = predictions[0]
         label = top_prediction["label"]
         confidence = top_prediction["confidence"]
-        print(f"Predicted label: {label}, confidence: {confidence}")
+        print(f"Predicted label: {label}, accuracy: {confidence * 100}%")
     else:
         print(f"Couldn't find image file {args.image}")
 
