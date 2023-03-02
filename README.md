@@ -37,3 +37,8 @@ Start the server
 
 [MIT Soccer Snap](https://github.com/Yvite/SoccerSnap/blob/main/LICENSE.md)
 
+## Uses
+ 1.Sports analysis: This image classification model could be used to analyze and evaluate the performance of soccer players by analyzing their skills.
+ 2.Automated video tagging: Use this model to automatically tag soccer videos based on the actions performed in the video.
+ 3.Social media monitoring: Use this model can be used to monitor social media feeds for soccer-related content and classify images based on the actions performed.
+
